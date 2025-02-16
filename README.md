@@ -1,4 +1,4 @@
-# Healthy Meals
+# HealthyMeals
 
 A Django-Powered Diet Support Website to help make and eat healthier meals to meet your dietary goals
 
@@ -9,70 +9,69 @@ A Django-Powered Diet Support Website to help make and eat healthier meals to me
 
 License: AGPLv3
 
-## Settings
 
-Moved to [settings](https://cookiecutter-django.readthedocs.io/en/latest/1-getting-started/settings.html).
+## Getting Started Developing
 
-## Basic Commands
+This app is being developed as a docker container from the get go.  This should help minimize scaling issues if this is successful.  See the following instructions for getting going.  Please feel free to contact me about doing pull requests, especially for improving documentation.
+
+### install docker desktop
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [Docker Desktop - Macs with Apple Silicon](https://docs.docker.com/desktop/setup/install/mac-install/)
+- [Docker Desktop - Macs with Intel Chips](https://desktop.docker.com/mac/main/amd64/Docker.dmg)
+- [Docker Desktop - Linux](https://docs.docker.com/desktop/setup/install/linux/)
+- [Docker Desktop - Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
+
+### Clone repo from Github
+
+see: [https://github.com/tayloredwebsites/healthymeals](https://github.com/tayloredwebsites/healthymeals)
+
+    git clone git@github.com:tayloredwebsites/healthymeals.git
+
+### build the docker container
+
+    docker compose -f docker-compose.local.yml build
+    python -m pip install pre-commit
+
+### bring up the website on localhost:8000/
+
+    docker compose -f docker-compose.local.yml up
+
+### Run the code quality suite
+
+Running nox will validate the code with the following tools:
+
+- pytest: to run automated tests
+- coverage: to report on code coverage of automated tests
+- ruff: to validate to coding standards
+- mypy: for type checking
+- genbadge: to generate test and coverage badges to view on README.md on github
+
+
+      docker compose -f docker-compose.local.yml run --rm django nox
+
+### Database Setup
+### Set up users to a blank database:
 
 ### Setting Up Your Users
 
-- To create a **normal user account**, just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
+#### To create a **normal user account**
 
-- To create a **superuser account**, use this command:
+Just go to Sign Up and fill out the form. Once you submit it, you'll see a "Verify Your E-mail Address" page. Go to your console to see a simulated email verification message. Copy the link into your browser. Now the user's email should be verified and ready to go.
+
+#### To create a **superuser account**, use this command:
 
       $ python manage.py createsuperuser
 
 For convenience, you can keep your normal user logged in on Chrome and your superuser logged in on Firefox (or similar), so that you can see how the site behaves for both kinds of users.
 
-### Type checks
+## To Do:
 
-Running type checks with mypy:
-
-    $ mypy healthymeals
-
-### Test coverage
-
-To run the tests, check your test coverage, and generate an HTML coverage report:
-
-    $ coverage run -m pytest
-    $ coverage html
-    $ open htmlcov/index.html
-
-#### Running tests with pytest
-
-    $ pytest
+### database initialization and loading procedures
 
 ### Live reloading and Sass CSS compilation
 
 Moved to [Live reloading and SASS compilation](https://cookiecutter-django.readthedocs.io/en/latest/2-local-development/developing-locally.html#using-webpack-or-gulp).
-
-### Celery
-
-This app comes with Celery.
-
-To run a celery worker:
-
-```bash
-cd healthymeals
-celery -A config.celery_app worker -l info
-```
-
-Please note: For Celery's import magic to work, it is important _where_ the celery commands are run. If you are in the same folder with _manage.py_, you should be right.
-
-To run [periodic tasks](https://docs.celeryq.dev/en/stable/userguide/periodic-tasks.html), you'll need to start the celery beat scheduler service. You can start it as a standalone process:
-
-```bash
-cd healthymeals
-celery -A config.celery_app beat
-```
-
-or you can embed the beat service inside a worker with the `-B` option (not recommended for production use):
-
-```bash
-cd healthymeals
-celery -A config.celery_app worker -B -l info
-```
 
 ## Deployment
 
@@ -81,3 +80,7 @@ The following details how to deploy this application.
 ### Docker
 
 See detailed [cookiecutter-django Docker documentation](https://cookiecutter-django.readthedocs.io/en/latest/3-deployment/deployment-with-docker.html).
+
+## Settings
+
+Moved to [settings](https://cookiecutter-django.readthedocs.io/en/latest/1-getting-started/settings.html).
