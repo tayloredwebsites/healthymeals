@@ -7,6 +7,8 @@ A Django-Powered Diet Support Website to help make and eat healthier meals to me
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/circleci/BZR3uzdbU6P9JdMbhCLMmZ/PhQcorR5decQrvhgn17chH/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/BZR3uzdbU6P9JdMbhCLMmZ/PhQcorR5decQrvhgn17chH/tree/main)
 
+![Codecov](https://img.shields.io/codecov/c/github/tayloredwebsites/healthymeals)
+
 License: AGPLv3
 
 ## Settings
