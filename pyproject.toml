@@ -5,13 +5,60 @@ addopts = "--ds=config.settings.test --reuse-db --import-mode=importlib"
 python_files = [
     "tests.py",
     "test_*.py",
+    "*_tests.py",
+    "case_*.py",
+    "cases_*.py",
+    "*_case.py",
+    "*_cases.py",
 ]
 
 # ==== Coverage ====
 [tool.coverage.run]
 include = ["healthymeals/**"]
-omit = ["*/migrations/*", "*/tests/*"]
+omit = [
+    "*/migrations/*",
+    "*/tests/*",
+    "django_project/asgi.py",
+    "django_project/wsgi.py",
+    "manage.py",
+    ".venv/*",
+    "*LICENSE.txt",
+    "*README.txt",
+    "requirements.txt",
+    "reports/*",
+    ".nox/*",
+    "noxfile.py"
+]
 plugins = ["django_coverage_plugin"]
+[tool.coverage.report]
+exclude_lines = [
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    # "class .*\bProtocol\):",  # parsing error
+    # "@(abc\.)?abstractmethod",  # parsing error
+    "pragma: no cover",
+]
+exclude_also = [
+    # # 1. Exclude an except clause of a specific form:
+    # "except ValueError:\n\s*assume\(False\)",
+    # # 2. Comments to turn coverage on and off:  # parsing error
+    # "no cover: start(?s:.)*?no cover: stop",
+    # # 3. A pragma comment that excludes an entire file:
+    # "\A(?s:.*# pragma: exclude file.*)\Z",  # parsing error
+]
+[tool.coverage.html]
+directory = "reports/coverage_html"
+[tool.coverage.xml]
+output = "reports/coverage/coverage.xml"
+[tool.django.coverage.plugin]
+template_extensions = ["html", "txt"]
+
 
 # ==== mypy ====
 [tool.mypy]
@@ -86,14 +133,14 @@ select = [
   "EM",
   "EXE",
   "FA",
-  'ISC',
+  "ISC",
   "ICN",
   "G",
-  'INP',
-  'PIE',
+  "INP",
+  "PIE",
   "T20",
-  'PYI',
-  'PT',
+  "PYI",
+  "PT",
   "Q",
   "RSE",
   "RET",
@@ -126,6 +173,8 @@ ignore = [
           # of types for comparison.
           # Deactivated because it can make the code slow:
           # https://github.com/astral-sh/ruff/issues/7871
+  "ERA001", # Does  not allow for commented out code
+            # it is important to allow this in configuration files
 ]
 # The fixes in extend-unsafe-fixes will require
 # provide the `--unsafe-fixes` flag when fixing.
