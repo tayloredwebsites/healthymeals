@@ -7,5 +7,3 @@ This will be achieved by having the .gitignore of the docs branch in the docs br
 - the main branch docs/.gitignore will have a wildcard * to not upload any docs files to the main branch.
 - the docs branch docs/.gitignore will have the not wildcard !* to upload all docs files to the docs branch.
 '''
-*
-!.gitignore
