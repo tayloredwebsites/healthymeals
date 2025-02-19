@@ -13,9 +13,11 @@ Run each code quality tool in separate session
 @nox.session
 def create_dirs(session):
     """Create qa directories if not there already."""
-    session.run("mkdir", "-p", "./docs/qa/tests")
-    session.run("mkdir", "-p", "./docs/qa/coverage")
-    session.run("mkdir", "-p", "./docs/qa/flake8")
+    session.run("rm", "-fr", "./docs/qa/")
+    session.run("mkdir", "-p", "./docs/qa/tests/")
+    session.run("mkdir", "-p", "./docs/qa/coverage/")
+    session.run("mkdir", "-p", "./docs/qa/flake8/")
+    session.run("mkdir", "-p", "./docs/qa/mypy/")
 
 @nox.session
 def coverage_tests(session):
@@ -66,10 +68,15 @@ def ruff(session):
         session.run("ruff", "check", stdout=out) # optional parameter: "--fix")
 
 @nox.session
-def mpyp(session):
+def mypy(session):
     """ run the mypy type checker """
     with Path.open("./docs/qa/ran_mypy.txt", "w") as out:
-        session.run("mypy", "./healthymeals", stdout=out)
+        session.run("mypy",
+            "./healthymeals",
+            "--xslt-html-report",
+            "./docs/qa/mypy/",
+            stdout=out,
+        )
 
 @nox.session
 def flake8(session):
@@ -85,7 +92,8 @@ def flake8(session):
             "--tee",
             "--output-file",
             "./docs/qa/flake8/flake8stats.txt",
-            "-v",
+            "--config=setup.cfg",
+            "--select=E251",
             stdout=out,
         )
 

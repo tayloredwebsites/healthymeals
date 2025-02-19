@@ -6,6 +6,7 @@ A Django-Powered Diet Support Website to help make and eat healthier meals to me
 [![Coverage Status](https://tayloredwebsites.github.io/healthymeals/docs/coverage/coverage_badge.svg)](https://tayloredwebsites.github.io/healthymeals/docs/coverage/html/index.html)
 [![Test Status](https://tayloredwebsites.github.io/healthymeals/docs/tests/tests_badge.svg)](https://tayloredwebsites.github.io/healthymeals/docs/tests/index.html)
 [![Flake8 Status](https://tayloredwebsites.github.io/healthymeals/docs/flake8/flake8_badge.svg)](https://tayloredwebsites.github.io/healthymeals/docs/flake8/html/index.html)
+[![Mypy Status](https://tayloredwebsites.github.io/healthymeals/docs/mypy_badge.svg)](https://tayloredwebsites.github.io/healthymeals/docs/mypy/index.html)
 
 [![Built with Cookiecutter Django](https://img.shields.io/badge/built%20with-Cookiecutter%20Django-ff69b4.svg?logo=cookiecutter)](https://github.com/cookiecutter/cookiecutter-django/)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)

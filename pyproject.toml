@@ -9,7 +9,7 @@ python_files = [
     "case_*.py",
     "cases_*.py",
     "*_case.py",
-    "*_cases.py",
+    "*_cases.py"
 ]
 
 # ==== Coverage ====
@@ -187,3 +187,18 @@ extend-unsafe-fixes = [
 
 [tool.ruff.lint.isort]
 force-single-line = true
+
+# this is ignored by flake 8, even with "--config=pyproject.toml",  # noqa: ERA001
+#   got error: parsing errors: 'pyproject.toml - [line 13]: ']\n'  # noqa: ERA001
+#   it doesn't seem to like multi-line arrays  # noqa: ERA001
+# [tool.flake8]  # noqa: ERA001
+# max_line_length = 120  # noqa: ERA001
+# exclude = [  # noqa: ERA001
+#     "migrations",  # noqa: ERA001
+# ]  # noqa: ERA001
+# ignore = [  # noqa: ERA001
+#     "E252",  # noqa: ERA001
+# ]  # noqa: ERA001
+# select = [  # noqa: ERA001
+#     "E251",  # noqa: ERA001
+# ]  # noqa: ERA001
