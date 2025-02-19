@@ -27,6 +27,7 @@ coverage==7.6.12  # https://github.com/nedbat/coveragepy
 djlint==1.36.4  # https://github.com/Riverside-Healthcare/djLint
 pre-commit==4.1.0  # https://github.com/pre-commit/pre-commit
 flake8==7.1.2  # https://github.com/pycqa/flake8
+flake8-html==0.4.3  # https://github.com/lordmauve/flake8-html
 pylint==3.3.4  # https://github.com/pylint-dev/pylint
 genbadge==1.1.1  # https://github.com/smarie/python-genbadge
 defusedxml==0.7.1  #https://github.com/tiran/defusedxml

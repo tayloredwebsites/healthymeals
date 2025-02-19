@@ -53,8 +53,9 @@ coverage.xml
 # Django stuff:
 staticfiles/
 
-# Sphinx documentation
-docs/_build/
+# docs folder uses docs/.gitignore, not this one
+# # Sphinx documentation
+# docs/_build/
 
 # PyBuilder
 target/
