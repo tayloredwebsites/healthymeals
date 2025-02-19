@@ -52,6 +52,11 @@ def coverage_badge_html(session):
         session.run("coverage", "html", stdout=out) # create coverage HTML files
 
 @nox.session
+def remove_coverage_gitignore(session):
+    """Create qa directories if not there already."""
+    session.run("rm", "./docs/qa/coverage/html/.gitignore")
+
+@nox.session
 def coverage_badge(session):
     """Generate the coverage badge."""
     with Path.open("./docs/qa/ran_coverage.txt", "a") as out:
