@@ -1,0 +1,11 @@
+.gitignore
+'''gitignore handling of the docs branch.
+
+The docs branch will be pushed separately to a github page for proper viewing of html and by users.
+
+This will be achieved by having the .gitignore of the docs branch in the docs branch itself.
+- the main branch docs/.gitignore will have a wildcard * to not upload any docs files to the main branch.
+- the docs branch docs/.gitignore will have the not wildcard !* to upload all docs files to the docs branch.
+'''
+*
+!.gitignore
